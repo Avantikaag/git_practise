@@ -19,6 +19,15 @@ void dfs(ll st,ll e,ll vis[],vector<ll> rs,ll w){
        }
    }
 }
+
+void display(vector<vector<int>> &arr){
+    for(int r=0;r<arr.length;r++){
+        for(int c=0;c<arr.length;c++){
+            cout<<arr[r][c]+" ";
+        }
+        cout<<endl;
+    }
+}
 int main()
 {
     ll n,m,t,c,u,v;
@@ -27,7 +36,7 @@ int main()
         cin>>u>>v;
         store[u].push_back(v);
         store[v].push_back(u);
-    } 
+    }
     vector<ll> rs;
     ll w = c;
     ll vis[n+1] = {0};
@@ -39,7 +48,7 @@ int main()
         for(auto u : ptr[i].second){
             rt[u].push_back(nes);
         }
-    } 
+    }
     ll trt[n+1] = {0};
     trt[1] = 1;
     trt[n] = 1;
@@ -49,7 +58,7 @@ int main()
             ll up = upper_bound(rt[i].begin(),rt[i].end(),tm) - rt[i].begin();
             trt[i] = up;
         }
-    } 
+    }
     for(int i=1;i<=n;i++)
     cout<<trt[i]<<" ";
     return 0;
